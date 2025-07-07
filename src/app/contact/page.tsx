@@ -97,7 +97,7 @@ export default function ContactPage() {
                 <div className="relative bg-black p-8 rounded-2xl">
                   <h3 className="text-2xl font-semibold text-white mb-4">Support Center</h3>
                   <div className="space-y-4 text-gray-400">
-                    <p>Email: support@wittymavericks.com</p>
+                    <p>Email: wittymavericks@gmail.com</p>
                     <p>Phone: +91 9250882554</p>
                     <p>Toll-free: 1800-MAVERICKS</p>
                     <div className="pt-4">
