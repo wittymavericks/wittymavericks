@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050505;
+  --foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit), var(--font-geist-sans), Arial, sans-serif;
+  --font-mono: var(--font-special-elite), var(--font-geist-mono), monospace;
+  --color-gold-light: #fde047;
+  --color-gold-dark: #eab308;
+  --color-gold-neon: #f0ff42;
+  --color-vintage-red: #b91c1c;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), Arial, Helvetica, sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #fde047;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #eab308;
+}
+
+/* CRT Screen Effect */
+.crt-screen {
+  position: relative;
+  overflow: hidden;
+}
+.crt-screen::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(250, 224, 71, 0.04), rgba(0, 255, 0, 0.01), rgba(250, 224, 71, 0.04));
+  z-index: 2;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+}
+.crt-screen::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: rgba(18, 16, 16, 0.05);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  animation: crt-flicker 0.25s infinite;
+}
+@keyframes crt-flicker {
+  0% { opacity: 0.18; }
+  50% { opacity: 0.15; }
+  100% { opacity: 0.19; }
+}
+
+.legal-folder-border {
+  border: 3px double #fde047;
+}
+
+.font-typewriter {
+  font-family: var(--font-special-elite), monospace;
+}
+
+/* Infinite Horizontal Scroll Marquee */
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-infinite-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll-marquee 25s linear infinite;
+}
+
+/* Optional: pause scroll on hover to allow interactive inspection */
+.animate-infinite-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* 3D Card Flip Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
