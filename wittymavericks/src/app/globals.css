@@ -12,6 +12,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-outfit), var(--font-geist-sans), Arial, sans-serif;
   --font-mono: var(--font-special-elite), var(--font-geist-mono), monospace;
+  --font-signature: var(--font-caveat), cursive;
   --color-gold-light: #fde047;
   --color-gold-dark: #eab308;
   --color-gold-neon: #f0ff42;
@@ -78,6 +79,10 @@ body {
 
 .font-typewriter {
   font-family: var(--font-special-elite), monospace;
+}
+
+.font-signature {
+  font-family: var(--font-caveat), cursive;
 }
 
 /* Infinite Horizontal Scroll Marquee */

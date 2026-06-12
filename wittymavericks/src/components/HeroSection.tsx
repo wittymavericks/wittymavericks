@@ -43,9 +43,9 @@ const HeroSection: FC = () => {
       for (let i = 0; i < data.length; i += 4) {
         const val = Math.floor(Math.random() * 255);
         data[i] = val;     // R
-        data[i+1] = val;   // G
-        data[i+2] = val;   // B
-        data[i+3] = 255;   // A
+        data[i + 1] = val;   // G
+        data[i + 2] = val;   // B
+        data[i + 3] = 255;   // A
       }
       ctx.putImageData(imgData, 0, 0);
       animId = requestAnimationFrame(renderNoise);
@@ -66,10 +66,10 @@ const HeroSection: FC = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
+
           {/* Left Text Block */}
           <div className="lg:col-span-7 space-y-8">
-            
+
             {/* Case file label */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
@@ -85,7 +85,7 @@ const HeroSection: FC = () => {
 
             {/* Main Headline */}
             <div className="space-y-4">
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -124,7 +124,7 @@ const HeroSection: FC = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.0 }}
-                  className="flex items-center gap-1.5 text-white font-bold"
+                  className="flex items-center gap-1.5 "
                 >
                   <span className="text-yellow-400">●</span> Few are remembered.
                 </motion.span>
@@ -158,7 +158,7 @@ const HeroSection: FC = () => {
                   </svg>
                 </button>
               </Link>
-              
+
               <Link href="/services" className="group">
                 <button className="w-full sm:w-auto border-2 border-zinc-700 hover:border-yellow-400 bg-zinc-950 text-white font-bold py-4 px-8 rounded-xl transition duration-300 transform hover:scale-102 flex items-center justify-center gap-2 text-sm tracking-widest font-mono uppercase">
                   <span>Explore Dossier</span>
@@ -168,7 +168,7 @@ const HeroSection: FC = () => {
           </div>
 
           {/* Right TV CRT Block */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -176,7 +176,7 @@ const HeroSection: FC = () => {
           >
             {/* CRT TV Case Wrapper */}
             <div className="relative w-full max-w-sm sm:max-w-md bg-zinc-900 border-4 border-zinc-800 rounded-3xl p-3 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
-              
+
               {/* Retro antenna structure */}
               <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-32 h-12 flex justify-between pointer-events-none">
                 <div className="w-1 h-12 bg-zinc-800 origin-bottom -rotate-30 rounded-full"></div>
@@ -186,7 +186,7 @@ const HeroSection: FC = () => {
               {/* TV Screen Surround */}
               <div className="bg-[#0b0b0d] rounded-2xl p-4 border border-zinc-800">
                 <div className="relative aspect-video sm:aspect-square bg-zinc-950 rounded-xl overflow-hidden crt-screen border-2 border-zinc-900 flex flex-col justify-between p-3 select-none">
-                  
+
                   {/* CRT Top Bar */}
                   <div className="flex justify-between items-center z-20 border-b border-yellow-400/20 pb-1.5">
                     <div className="flex items-center gap-1.5">
@@ -197,27 +197,26 @@ const HeroSection: FC = () => {
                   </div>
 
                   {/* Canvas for Noise Static */}
-                  <canvas 
+                  <canvas
                     ref={canvasRef}
-                    className={`absolute inset-0 w-full h-full z-15 pointer-events-none transition-opacity duration-100 ${
-                      isChanging || channel === 4 ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className={`absolute inset-0 w-full h-full z-15 pointer-events-none transition-opacity duration-100 ${isChanging || channel === 4 ? 'opacity-100' : 'opacity-0'
+                      }`}
                   />
 
                   {/* TV Displays based on Channel */}
                   <div className="absolute inset-0 z-0">
                     <AnimatePresence mode="wait">
                       {!isChanging && channel === 1 && (
-                        <motion.div 
-                          key="ch1" 
-                          initial={{ opacity: 0 }} 
-                          animate={{ opacity: 1 }} 
+                        <motion.div
+                          key="ch1"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           className="w-full h-full relative"
                         >
-                          <img 
-                            src="/images/call-saul.jpg" 
-                            alt="Better Call Witty Mavericks" 
+                          <img
+                            src="/images/call-saul.jpg"
+                            alt="Better Call Witty Mavericks"
                             className="object-cover w-full h-full opacity-40 grayscale brightness-125 contrast-125"
                           />
                           <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4">
@@ -229,16 +228,16 @@ const HeroSection: FC = () => {
                       )}
 
                       {!isChanging && channel === 2 && (
-                        <motion.div 
-                          key="ch2" 
-                          initial={{ opacity: 0 }} 
-                          animate={{ opacity: 1 }} 
+                        <motion.div
+                          key="ch2"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           className="w-full h-full relative"
                         >
-                          <img 
-                            src="/images/team-photo.jpg" 
-                            alt="Surveillance Crew" 
+                          <img
+                            src="/images/team-photo.jpg"
+                            alt="Surveillance Crew"
                             className="object-cover w-full h-full opacity-40 grayscale contrast-150 brightness-90"
                           />
                           <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4">
@@ -250,10 +249,10 @@ const HeroSection: FC = () => {
                       )}
 
                       {!isChanging && channel === 3 && (
-                        <motion.div 
-                          key="ch3" 
-                          initial={{ opacity: 0 }} 
-                          animate={{ opacity: 1 }} 
+                        <motion.div
+                          key="ch3"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           className="w-full h-full flex flex-col justify-center items-center bg-black/90 p-4 border border-yellow-400/10 rounded-xl"
                         >
@@ -291,13 +290,13 @@ const HeroSection: FC = () => {
               {/* TV Hardware Dials */}
               <div className="flex justify-between items-center mt-3 px-2 border-t border-zinc-800/60 pt-2.5">
                 <div className="flex items-center gap-2">
-                  <button 
-                    onClick={changeChannel} 
+                  <button
+                    onClick={changeChannel}
                     className="flex gap-1.5 items-center bg-zinc-950 px-2.5 py-1.5 rounded-lg border border-zinc-800 text-zinc-400 hover:text-yellow-400 hover:border-yellow-400/40 transition active:scale-95 shadow-inner"
                     title="Click to tune TV Channel"
                   >
                     {/* Rotating Dial Knob */}
-                    <motion.div 
+                    <motion.div
                       animate={{ rotate: (channel - 1) * 90 }}
                       transition={{ type: "spring", stiffness: 300, damping: 15 }}
                       className="w-4 h-4 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center"

@@ -14,7 +14,7 @@ export default function AboutSection() {
       title: "Tu Yaa Main",
       refCode: "EXHIBIT C-01 / TYM",
       category: "Bollywood Movie Campaign",
-      image: "/images/tuu_yaa_main.jpg",
+      image: "/images/Tu Yaa Main.jpg",
       desc: "Comprehensive marketing and campaign strategy for the Bollywood film 'Tu Yaa Main', driving organic social media hype, trailer discussions, and character-reveal buzz.",
       links: [
         { label: "Reference Link 1 (Instagram Reel)", url: "https://www.instagram.com/reel/DXE7CmpCZyt/" },
@@ -26,7 +26,7 @@ export default function AboutSection() {
       title: "Avatar: Fire and Ash",
       refCode: "EXHIBIT C-02 / AVTR",
       category: "Hollywood Movie Campaign",
-      image: "/images/avatar.jpg",
+      image: "/images/Avatar.jpeg",
       desc: "Hype generation and massive attention capture for James Cameron's blockbuster sequel 'Avatar: Fire and Ash', driving global fan theories, trailer drops, and cinematic discussions.",
       links: [
         { label: "Reference Link 1 (Instagram Reel)", url: "https://www.instagram.com/reel/DSeNRBHiGwb/" },
@@ -38,7 +38,7 @@ export default function AboutSection() {
       title: "Bold Care",
       refCode: "EXHIBIT C-03 / BOLD",
       category: "Men's Wellness Brand",
-      image: "/images/bold_care.jpg",
+      image: "/images/Boldcare.jpg",
       desc: "High-impact social campaign for the D2C wellness brand 'Bold Care', driving massive brand awareness, product seeding, and viral marketing featuring top celebrity stars.",
       links: [
         { label: "Reference Link 1 (Instagram Reel)", url: "https://www.instagram.com/reel/DOJOJwCgTdK/" },
@@ -62,7 +62,7 @@ export default function AboutSection() {
       title: "Lakmé",
       refCode: "EXHIBIT C-05 / LKME",
       category: "Cosmetics & Beauty Brand",
-      image: "/images/lakme_logo.jpg",
+      image: "/images/Lakme.jpeg",
       desc: "Creative social positioning and luxury brand campaigns for 'Lakmé', leveraging top beauty creators and premium aesthetics to showcase cosmetic line launches and runway events.",
       links: [
         { label: "Reference Link 1 (Instagram Post)", url: "https://www.instagram.com/p/DXeVMXijDW1yQQnvHGxmVM7teAm97MWrukRKXU0/" },
@@ -74,14 +74,14 @@ export default function AboutSection() {
 
   const toggleRetained = (idx: number) => {
     retroSound.playGavel();
-    setRetainedMembers(prev => 
+    setRetainedMembers(prev =>
       prev.includes(idx) ? prev.filter(i => i !== idx) : [...prev, idx]
     );
   };
 
   const toggleFlip = (idx: number) => {
     retroSound.playTVStaticClick();
-    setFlippedCards(prev => 
+    setFlippedCards(prev =>
       prev.includes(idx) ? prev.filter(i => i !== idx) : [...prev, idx]
     );
   };
@@ -94,14 +94,6 @@ export default function AboutSection() {
       email: "samarth@wittymavericks.com",
       image: "/images/saul.jpg",
       stamp: "FOUNDER"
-    },
-    {
-      name: "Raghunath Dewasi",
-      role: "Senior Campaign Strategist",
-      bio: "He knows how to turn every challenge into a winning campaign strategy.",
-      email: "raghunath@wittymavericks.com",
-      image: "/images/lalo.jpg",
-      stamp: "STRATEGIST"
     },
     {
       name: "Shruti Sharma",
@@ -119,6 +111,15 @@ export default function AboutSection() {
       image: "/images/mike.jpg",
       stamp: "PLANNER"
     },
+    {
+      name: "Raghunath Dewasi",
+      role: "Senior Campaign Strategist",
+      bio: "He knows how to turn every challenge into a winning campaign strategy.",
+      email: "raghunath@wittymavericks.com",
+      image: "/images/lalo.jpg",
+      stamp: "STRATEGIST"
+    },
+
     {
       name: "Anumapa Yadav",
       role: "Content Manager",
@@ -165,7 +166,7 @@ export default function AboutSection() {
     retroSound.playTVStaticClick();
 
     const startTime = performance.now();
-    const duration = 1500;
+    const duration = 4000;
 
     intervalRef.current = setInterval(() => {
       retroSound.playTypewriter();
@@ -200,7 +201,7 @@ export default function AboutSection() {
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-yellow-400/5 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* WHO WE ARE */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
           <div className="lg:col-span-7">
@@ -242,7 +243,7 @@ export default function AboutSection() {
                     </>
                   )}
                 </div>
-                
+
                 <div className="font-mono text-xs text-zinc-400 tracking-wider">
                   {status === 'unverified' && (
                     <span>DOSSIER STATUS: <span className="text-red-400 font-bold">UNVERIFIED</span></span>
@@ -261,13 +262,12 @@ export default function AboutSection() {
                 whileTap={{ scale: 0.95 }}
                 onClick={handleCheckNumbers}
                 disabled={status === 'checking'}
-                className={`px-5 py-2 rounded-xl text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 ${
-                  status === 'checking'
-                    ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed border border-zinc-700/50'
-                    : status === 'verified'
+                className={`px-5 py-2 rounded-xl text-xs font-mono font-bold tracking-widest uppercase transition-all duration-300 ${status === 'checking'
+                  ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed border border-zinc-700/50'
+                  : status === 'verified'
                     ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.1)]'
                     : 'bg-[#fde047] text-black hover:bg-yellow-300 shadow-[0_0_15px_rgba(253,224,71,0.2)] border border-yellow-400/40'
-                }`}
+                  }`}
               >
                 {status === 'unverified' && 'CHECK NUMBERS'}
                 {status === 'checking' && 'DECRYPTING...'}
@@ -282,17 +282,15 @@ export default function AboutSection() {
                   {status === 'verified' && (
                     <div className="absolute -inset-2 bg-emerald-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none blur-sm" />
                   )}
-                  <div className={`text-3xl font-black font-mono transition-all duration-500 flex items-baseline ${
-                    status === 'unverified' 
-                      ? 'text-zinc-600 blur-[2px]' 
-                      : status === 'checking'
+                  <div className={`text-3xl font-black font-mono transition-all duration-500 flex items-baseline ${status === 'unverified'
+                    ? 'text-zinc-600 blur-[2px]'
+                    : status === 'checking'
                       ? 'text-yellow-400/95'
                       : 'text-[#fde047]'
-                  }`}>
-                    <span>{status === 'unverified' ? '0' : displayValues[idx]}</span>
-                    <span className={`text-lg font-bold ml-0.5 transition-colors ${
-                      status === 'unverified' ? 'text-zinc-700' : 'text-yellow-400'
                     }`}>
+                    <span>{status === 'unverified' ? '0' : displayValues[idx]}</span>
+                    <span className={`text-lg font-bold ml-0.5 transition-colors ${status === 'unverified' ? 'text-zinc-700' : 'text-yellow-400'
+                      }`}>
                       {stat.suffix}
                     </span>
                   </div>
@@ -363,21 +361,20 @@ export default function AboutSection() {
             {priorityCampaigns.map((camp, idx) => {
               const isFlipped = flippedCards.includes(idx);
               return (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="w-full perspective-1000 h-[420px]"
                 >
-                  <div 
+                  <div
                     onClick={() => toggleFlip(idx)}
-                    className={`relative w-full h-full duration-700 preserve-3d cursor-pointer ${
-                      isFlipped ? 'rotate-y-180' : ''
-                    }`}
+                    className={`relative w-full h-full duration-700 preserve-3d cursor-pointer ${isFlipped ? 'rotate-y-180' : ''
+                      }`}
                   >
                     {/* FRONT SIDE (Polaroid Photo Card) */}
                     <div className="absolute inset-0 w-full h-full backface-hidden bg-[#FFFEEB] p-4 rounded-xl border-2 border-[#E3DC8F] shadow-xl flex flex-col justify-between select-none">
                       {/* Notepad Ruled Lines Background */}
                       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.015)_1px,transparent_1px)] bg-[size:100%_1.5rem] pointer-events-none p-4 pt-12"></div>
-                      
+
                       {/* Paper clip detail */}
                       <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 pointer-events-none transform -rotate-12 transition-transform duration-300">
                         <svg className="w-5 h-10 text-zinc-650 drop-shadow-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -391,16 +388,17 @@ export default function AboutSection() {
                       </div>
 
                       {/* Polaroid Image */}
-                      <div className={`relative w-full h-[75%] rounded-lg overflow-hidden border border-[#E3DC8F]/40 mt-2 ${
-                        camp.image.includes('lakme') ? 'bg-white p-2' : 'bg-zinc-950'
-                      }`}>
+                      <div className={`relative w-full h-[75%] rounded-lg overflow-hidden border border-[#E3DC8F]/40 mt-2 ${camp.image.toLowerCase().includes('lakme') ? 'bg-white p-2' : 'bg-zinc-950'
+                        }`}>
                         <Image
                           src={camp.image}
                           alt={camp.title}
                           fill
                           sizes="(max-width: 768px) 100vw, 20vw"
                           className={`transition-all duration-500 ease-out ${
-                            camp.image.includes('lakme') ? 'object-contain' : 'object-cover'
+                            camp.image.toLowerCase().includes('lakme') || camp.image.toLowerCase().includes('tu yaa main')
+                              ? 'object-contain'
+                              : 'object-cover'
                           }`}
                         />
                         {/* Film grain effect */}
@@ -422,7 +420,7 @@ export default function AboutSection() {
                     <div className="absolute inset-0 w-full h-full backface-hidden bg-[#FFFDF0] p-5 rounded-xl border-2 border-[#DFC69C] shadow-xl flex flex-col justify-between rotate-y-180 select-none">
                       {/* Notepad Ruled Lines Background */}
                       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.015)_1px,transparent_1px)] bg-[size:100%_1.5rem] pointer-events-none p-4 pt-12"></div>
-                      
+
                       {/* Back Card Content */}
                       <div>
                         {/* Header */}
@@ -496,66 +494,67 @@ export default function AboutSection() {
             </span>
             <h3 className="text-xl font-bold text-white uppercase tracking-wider">CREATIVE CAMPAIGN NETWORK</h3>
           </div>
-          
+
           <div className="w-full overflow-hidden relative py-6">
             {/* Gradient Overlays for smooth blend-in and blend-out at the edges */}
             <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none" />
-            
+
             <div className="animate-infinite-scroll flex gap-20 items-center">
               {/* BRAND LOGOS: 1st Set */}
               {[
                 // Adobe
-                <div key="adobe" className="group flex items-center gap-2 transition-transform duration-300 hover:scale-105">
-                  <svg viewBox="0 0 24 24" className="w-5 h-5 text-zinc-500 group-hover:text-red-500 transition-colors fill-current">
-                    <path d="M14.58 2.02h9.27V22H14.58zM0 2.02h9.27V22H0zm7.29 11.51L11.93 22h9.27z" />
-                  </svg>
-                  <span className="font-sans font-black text-sm tracking-wide text-zinc-500 group-hover:text-white transition-colors">Adobe</span>
+                <div key="adobe" className="group flex items-center transition-transform duration-300 hover:scale-105">
+                  <img
+                    src="/images/adobe.png"
+                    alt="Adobe Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
-                
+
                 // Truecaller
-                <div key="truecaller" className="group flex items-center gap-2 transition-transform duration-300 hover:scale-105">
-                  <svg viewBox="0 0 24 24" className="w-5 h-5 text-zinc-500 group-hover:text-[#2582e8] transition-colors fill-current">
-                    <path d="M12 2C6.48 2 2 6.48 2 12c0 2.18.7 4.19 1.88 5.84L2.05 22l4.27-1.15C7.94 21.43 9.91 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm1.09 14.14c-1.57-.42-3.13-1.63-4.14-2.65-1.02-1.01-2.23-2.57-2.65-4.14-.15-.56.09-1.15.58-1.42l1.04-.57c.39-.21.87-.1 1.14.26l1.01 1.34c.23.31.2.74-.08 1.01l-.39.38c-.14.14-.17.36-.07.53.51.87 1.22 1.58 2.09 2.09.17.1.39.07.53-.07l.38-.39c.27-.28.7-.31 1.01-.08l1.34 1.01c.36.27.47.75.26 1.14l-.57 1.04c-.27.49-.86.73-1.42.58z" />
-                  </svg>
-                  <span className="font-sans font-bold text-sm tracking-wide text-zinc-500 group-hover:text-white transition-colors">truecaller</span>
+                <div key="truecaller" className="group flex items-center transition-transform duration-300 hover:scale-105">
+                  <img
+                    src="/images/truecaller.png"
+                    alt="Truecaller Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // The Boys
                 <div key="boys" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-mono font-black text-xs tracking-tighter uppercase border border-zinc-600 px-2 py-0.5 rounded text-zinc-500 group-hover:text-white group-hover:border-white transition-all">
-                    THE BOYS
-                  </span>
+                  <img
+                    src="/images/The boys.png"
+                    alt="The Boys Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // Bhooth Bangla
                 <div key="bhooth" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-serif italic font-extrabold text-xs tracking-widest text-zinc-500 group-hover:text-[#fde047] transition-colors">
-                    👻 BHOOTH BANGLA
-                  </span>
+                  <img
+                    src="/images/bhooth_bangla_logo.png"
+                    alt="Bhooth Bangla Logo"
+                    className="h-10 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // T20 World Cup
-                <div key="t20" className="group flex items-center gap-2 transition-transform duration-300 hover:scale-105">
-                  <svg viewBox="0 0 24 24" className="w-4 h-4 text-zinc-500 group-hover:text-emerald-400 transition-colors fill-none stroke-current" strokeWidth="2.5">
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 3v18M3 12h18M5.5 5.5l13 13M18.5 5.5l-13 13" />
-                  </svg>
-                  <span className="font-sans font-extrabold text-[10px] tracking-widest text-zinc-500 group-hover:text-white transition-colors">T20 WORLD CUP</span>
+                <div key="t20" className="group flex items-center transition-transform duration-300 hover:scale-105">
+                  <img
+                    src="/images/icc t20 world cup.jpg"
+                    alt="T20 World Cup Logo"
+                    className="h-12 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // Ramayana
                 <div key="ramayana" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-serif font-black text-sm tracking-widest text-zinc-500 group-hover:text-yellow-500 transition-colors">
-                    RAMAYANA
-                  </span>
-                </div>,
-
-                // Muesli
-                <div key="muesli" className="group flex items-center gap-1 transition-transform duration-300 hover:scale-105">
-                  <span className="font-sans font-medium text-sm tracking-wider text-zinc-500 group-hover:text-emerald-400 transition-colors">
-                    🌾 muesli.
-                  </span>
+                  <img
+                    src="/images/Ramayana logo.jpg"
+                    alt="Ramayana Logo"
+                    className="h-12 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // Priyanka Chopra
@@ -567,16 +566,20 @@ export default function AboutSection() {
 
                 // Bullet
                 <div key="bullet" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-mono font-bold text-[10px] tracking-widest border border-zinc-600 px-2 py-0.5 rounded text-zinc-500 group-hover:text-white group-hover:border-white transition-all">
-                    BULLET
-                  </span>
+                  <img
+                    src="/images/Bullet app logo.jpg"
+                    alt="Bullet Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // Tu Yaa Main
                 <div key="tym" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-mono font-black text-xs tracking-widest text-zinc-500 group-hover:text-[#fde047] transition-colors">
-                    TU YAA MAIN
-                  </span>
+                  <img
+                    src="/images/tu ya main logo .png"
+                    alt="Tu Yaa Main Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // Avatar
@@ -588,23 +591,29 @@ export default function AboutSection() {
 
                 // Bold Care
                 <div key="boldcare" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-sans font-black text-sm tracking-tight text-zinc-500 group-hover:text-white transition-colors">
-                    bold<span className="text-zinc-600 group-hover:text-[#fde047]">care</span>
-                  </span>
+                  <img
+                    src="/images/Boldcare logo.png"
+                    alt="Bold Care Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // HAQ
                 <div key="haq" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-mono font-extrabold text-sm tracking-[0.2em] text-zinc-500 group-hover:text-red-500 transition-colors">
-                    HAQ
-                  </span>
+                  <img
+                    src="/images/Haq logo.jpg"
+                    alt="HAQ Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // Lakmé
                 <div key="lakme" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-serif font-bold text-xs tracking-[0.25em] text-zinc-500 group-hover:text-white transition-colors">
-                    LAKMÉ
-                  </span>
+                  <img
+                    src="/images/Lakme logo.png"
+                    alt="Lakmé Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>
               ].map((logoHtml, lIdx) => (
                 <div key={`logo-set1-${lIdx}`} className="flex-shrink-0">
@@ -615,56 +624,57 @@ export default function AboutSection() {
               {/* BRAND LOGOS: 2nd Duplicate Set for Infinite Scroll */}
               {[
                 // Adobe
-                <div key="dup-adobe" className="group flex items-center gap-2 transition-transform duration-300 hover:scale-105">
-                  <svg viewBox="0 0 24 24" className="w-5 h-5 text-zinc-500 group-hover:text-red-500 transition-colors fill-current">
-                    <path d="M14.58 2.02h9.27V22H14.58zM0 2.02h9.27V22H0zm7.29 11.51L11.93 22h9.27z" />
-                  </svg>
-                  <span className="font-sans font-black text-sm tracking-wide text-zinc-500 group-hover:text-white transition-colors">Adobe</span>
+                <div key="dup-adobe" className="group flex items-center transition-transform duration-300 hover:scale-105">
+                  <img
+                    src="/images/adobe.png"
+                    alt="Adobe Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
-                
+
                 // Truecaller
-                <div key="dup-truecaller" className="group flex items-center gap-2 transition-transform duration-300 hover:scale-105">
-                  <svg viewBox="0 0 24 24" className="w-5 h-5 text-zinc-500 group-hover:text-[#2582e8] transition-colors fill-current">
-                    <path d="M12 2C6.48 2 2 6.48 2 12c0 2.18.7 4.19 1.88 5.84L2.05 22l4.27-1.15C7.94 21.43 9.91 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm1.09 14.14c-1.57-.42-3.13-1.63-4.14-2.65-1.02-1.01-2.23-2.57-2.65-4.14-.15-.56.09-1.15.58-1.42l1.04-.57c.39-.21.87-.1 1.14.26l1.01 1.34c.23.31.2.74-.08 1.01l-.39.38c-.14.14-.17.36-.07.53.51.87 1.22 1.58 2.09 2.09.17.1.39.07.53-.07l.38-.39c.27-.28.7-.31 1.01-.08l1.34 1.01c.36.27.47.75.26 1.14l-.57 1.04c-.27.49-.86.73-1.42.58z" />
-                  </svg>
-                  <span className="font-sans font-bold text-sm tracking-wide text-zinc-500 group-hover:text-white transition-colors">truecaller</span>
+                <div key="dup-truecaller" className="group flex items-center transition-transform duration-300 hover:scale-105">
+                  <img
+                    src="/images/truecaller.png"
+                    alt="Truecaller Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // The Boys
                 <div key="dup-boys" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-mono font-black text-xs tracking-tighter uppercase border border-zinc-600 px-2 py-0.5 rounded text-zinc-500 group-hover:text-white group-hover:border-white transition-all">
-                    THE BOYS
-                  </span>
+                  <img
+                    src="/images/The boys.png"
+                    alt="The Boys Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // Bhooth Bangla
                 <div key="dup-bhooth" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-serif italic font-extrabold text-xs tracking-widest text-zinc-500 group-hover:text-[#fde047] transition-colors">
-                    👻 BHOOTH BANGLA
-                  </span>
+                  <img
+                    src="/images/bhooth_bangla_logo.png"
+                    alt="Bhooth Bangla Logo"
+                    className="h-10 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // T20 World Cup
-                <div key="dup-t20" className="group flex items-center gap-2 transition-transform duration-300 hover:scale-105">
-                  <svg viewBox="0 0 24 24" className="w-4 h-4 text-zinc-500 group-hover:text-emerald-400 transition-colors fill-none stroke-current" strokeWidth="2.5">
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 3v18M3 12h18M5.5 5.5l13 13M18.5 5.5l-13 13" />
-                  </svg>
-                  <span className="font-sans font-extrabold text-[10px] tracking-widest text-zinc-500 group-hover:text-white transition-colors">T20 WORLD CUP</span>
+                <div key="dup-t20" className="group flex items-center transition-transform duration-300 hover:scale-105">
+                  <img
+                    src="/images/icc t20 world cup.jpg"
+                    alt="T20 World Cup Logo"
+                    className="h-12 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // Ramayana
                 <div key="dup-ramayana" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-serif font-black text-sm tracking-widest text-zinc-500 group-hover:text-yellow-500 transition-colors">
-                    RAMAYANA
-                  </span>
-                </div>,
-
-                // Muesli
-                <div key="dup-muesli" className="group flex items-center gap-1 transition-transform duration-300 hover:scale-105">
-                  <span className="font-sans font-medium text-sm tracking-wider text-zinc-500 group-hover:text-emerald-400 transition-colors">
-                    🌾 muesli.
-                  </span>
+                  <img
+                    src="/images/Ramayana logo.jpg"
+                    alt="Ramayana Logo"
+                    className="h-12 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // Priyanka Chopra
@@ -676,16 +686,20 @@ export default function AboutSection() {
 
                 // Bullet
                 <div key="dup-bullet" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-mono font-bold text-[10px] tracking-widest border border-zinc-600 px-2 py-0.5 rounded text-zinc-500 group-hover:text-white group-hover:border-white transition-all">
-                    BULLET
-                  </span>
+                  <img
+                    src="/images/Bullet app logo.jpg"
+                    alt="Bullet Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // Tu Yaa Main
                 <div key="dup-tym" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-mono font-black text-xs tracking-widest text-zinc-500 group-hover:text-[#fde047] transition-colors">
-                    TU YAA MAIN
-                  </span>
+                  <img
+                    src="/images/tu ya main logo .png"
+                    alt="Tu Yaa Main Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // Avatar
@@ -697,23 +711,29 @@ export default function AboutSection() {
 
                 // Bold Care
                 <div key="dup-boldcare" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-sans font-black text-sm tracking-tight text-zinc-500 group-hover:text-white transition-colors">
-                    bold<span className="text-zinc-600 group-hover:text-[#fde047]">care</span>
-                  </span>
+                  <img
+                    src="/images/Boldcare logo.png"
+                    alt="Bold Care Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // HAQ
                 <div key="dup-haq" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-mono font-extrabold text-sm tracking-[0.2em] text-zinc-500 group-hover:text-red-500 transition-colors">
-                    HAQ
-                  </span>
+                  <img
+                    src="/images/Haq logo.jpg"
+                    alt="HAQ Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>,
 
                 // Lakmé
                 <div key="dup-lakme" className="group flex items-center transition-transform duration-300 hover:scale-105">
-                  <span className="font-serif font-bold text-xs tracking-[0.25em] text-zinc-500 group-hover:text-white transition-colors">
-                    LAKMÉ
-                  </span>
+                  <img
+                    src="/images/Lakme logo.png"
+                    alt="Lakmé Logo"
+                    className="h-8 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
                 </div>
               ].map((logoHtml, lIdx) => (
                 <div key={`logo-set2-${lIdx}`} className="flex-shrink-0">
@@ -748,7 +768,7 @@ export default function AboutSection() {
               >
                 {/* Yellow legal pad rules lines */}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.015)_1px,transparent_1px)] bg-[size:100%_1.5rem] pointer-events-none p-4 pt-12"></div>
-                
+
                 {/* Vintage Card Border */}
                 <div className="absolute inset-3 border border-zinc-900/10 pointer-events-none rounded"></div>
 
@@ -774,7 +794,7 @@ export default function AboutSection() {
                   <div className="relative w-full aspect-[3/4] max-w-[145px] mx-auto mb-5 mt-1 pointer-events-none">
                     {/* Retro Washi Tape */}
                     <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-10 w-16 h-4 bg-yellow-600/20 backdrop-blur-[0.5px] border border-yellow-700/10 shadow-sm transform rotate-[-2deg]"></div>
-                    
+
                     {/* Polaroid Frame */}
                     <div className="w-full h-full bg-[#FDFBF7] p-2 pb-6 shadow-md border border-zinc-200/50 flex flex-col justify-between rounded transform rotate-[-1deg] group-hover:rotate-[1deg] group-hover:scale-105 transition-all duration-500">
                       <div className="relative w-full h-[82%] bg-zinc-950 overflow-hidden border border-zinc-200/20">
@@ -809,7 +829,7 @@ export default function AboutSection() {
                   <p className="text-[9px] font-mono font-bold tracking-widest text-[#b91c1c] uppercase mb-3 border-b border-zinc-900/10 pb-1.5">
                     {member.role}
                   </p>
-                  
+
                   {/* Saul-Style monospaced Quote */}
                   <p className="text-[11px] text-zinc-800 font-mono italic leading-relaxed pl-2 border-l-2 border-zinc-900/30">
                     &ldquo;{member.bio}&rdquo;

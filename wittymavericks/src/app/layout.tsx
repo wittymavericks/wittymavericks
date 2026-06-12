@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Special_Elite, Outfit } from "next/font/google";
+import { Geist, Geist_Mono, Special_Elite, Outfit, Caveat } from "next/font/google";
 import "./globals.css";
 import DockNav from "@/components/DockNav";
 
@@ -24,6 +24,12 @@ const outfit = Outfit({
   subsets: ["latin"],
 });
 
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["700"],
+});
+
 export const metadata: Metadata = {
   title: "Witty Mavericks",
   description: "WittyMavericks - Your partner in creating cutting-edge digital experiences. We specialize in web development, design, and innovative solutions.",
@@ -41,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${specialElite.variable} ${outfit.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${specialElite.variable} ${outfit.variable} ${caveat.variable} antialiased`}
       >
         {children}
         <DockNav />

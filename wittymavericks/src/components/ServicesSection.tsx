@@ -286,7 +286,7 @@ export default function ServicesSection() {
                       </div>
                       
                       <div className="space-y-1 text-zinc-700 leading-tight">
-                        <p><span className="font-bold text-zinc-950">SUBJECT:</span> {service.title.toUpperCase()}</p>
+                        <p><span className="font-bold text-red-600">SUBJECT:</span> <span className="text-red-600">{service.title.toUpperCase()}</span></p>
                         <p><span className="font-bold text-zinc-950">ORIGIN:</span> MAVERICK LITIGATION</p>
                         <p className="text-[8px] text-zinc-500 mt-1 italic border-t border-zinc-100 pt-1">
                           &ldquo;{service.description}&rdquo;

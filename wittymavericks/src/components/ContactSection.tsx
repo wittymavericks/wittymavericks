@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { retroSound } from './RetroSound';
+import emailjs from '@emailjs/browser';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -19,25 +20,55 @@ export default function ContactSection() {
     setSubmitStatus('idle');
     console.log('🚀 Starting form submission...', formData);
 
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
     try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      console.log('📥 Received response:', response);
-      const data = await response.json();
-      console.log('📄 Response data:', data);
-
-      if (data.success) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-        console.log('✨ Form submitted successfully!');
+      if (serviceId && templateId && publicKey) {
+        console.log('✉️ Sending message via EmailJS...');
+        const result = await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            from_name: formData.name,
+            from_email: formData.email,
+            message: formData.message,
+            to_email: 'wittymavericks@gmail.com',
+          },
+          {
+            publicKey: publicKey,
+          }
+        );
+        console.log('📥 EmailJS response:', result);
+        if (result.status === 200) {
+          setSubmitStatus('success');
+          setFormData({ name: '', email: '', message: '' });
+          console.log('✨ Message sent successfully via EmailJS!');
+        } else {
+          throw new Error('EmailJS failed to send');
+        }
       } else {
-        throw new Error(data.error || 'Failed to send message');
+        console.log('✉️ EmailJS keys missing, falling back to local Resend API route...');
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        console.log('📥 Received API response:', response);
+        const data = await response.json();
+        console.log('📄 API Response data:', data);
+
+        if (data.success) {
+          setSubmitStatus('success');
+          setFormData({ name: '', email: '', message: '' });
+          console.log('✨ Message sent successfully via Resend API!');
+        } else {
+          throw new Error(data.error || 'Failed to send message');
+        }
       }
     } catch (error) {
       console.error('💥 Form submission error:', error);
@@ -49,36 +80,80 @@ export default function ContactSection() {
 
   return (
     <section className="bg-[#fde047] py-24 text-black relative overflow-hidden">
-      
+
       {/* Tiny aesthetic details like typewriter borders */}
       <div className="absolute inset-x-0 top-0 h-1 bg-[repeating-linear-gradient(90deg,black,black_10px,transparent_10px,transparent_20px)]"></div>
-      
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* CLOSER BANNER */}
-        <div className="mb-20 bg-black text-white p-8 md:p-12 rounded-3xl relative overflow-hidden border-4 border-black shadow-2xl">
-          {/* Yellow pad styling background lines on screen */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(253,224,71,0.03)_1px,transparent_1px)] bg-[size:100%_2rem] pointer-events-none"></div>
-          
-          <div className="relative z-10 text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-xs font-mono text-[#fde047] tracking-widest uppercase font-black block">THE CLOSING ARGUMENT</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-mono tracking-tight text-white leading-tight uppercase">
-              &ldquo;When brands need attention fast, they usually know who to call.&rdquo;
-            </h2>
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <span className="text-xl sm:text-2xl font-black text-black bg-[#fde047] px-4 py-1.5 rounded-lg inline-block transform -rotate-1 shadow-lg font-mono">
-                WITTY MAVERICKS
-              </span>
-              <span className="text-lg font-mono text-yellow-400 italic">
-                It&apos;s all good, brand.
-              </span>
+
+        {/* CLOSER BANNER (Better Call Saul Billboard Style) */}
+        <div className="mb-20 bg-black rounded-3xl overflow-hidden border-4 border-black shadow-2xl relative">
+
+          {/* Top Red Band */}
+          <div className="bg-red-700 text-white font-sans font-black text-center py-2.5 px-4 text-sm sm:text-base md:text-lg tracking-wider uppercase border-b-4 border-black select-none">
+            IN ATTENTION EMERGENCY?
+          </div>
+
+          {/* Middle Yellow/Gold Billboard Area */}
+          <div className="bg-[#f5c312] p-8 md:p-12 relative flex flex-col md:flex-row items-center justify-between min-h-[300px] overflow-hidden">
+            {/* Yellow legal pad rules lines */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:100%_1.5rem] pointer-events-none"></div>
+
+            {/* Left Content (Text) */}
+            <div className="relative z-10 w-full md:w-3/5 text-center md:text-left space-y-4">
+              <h2 className="font-signature text-zinc-950 text-3xl sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-sm select-none leading-tight tracking-wide">
+                &ldquo;Better Call Witty Mavericks&rdquo;
+              </h2>
+
+              <div className="flex justify-center md:justify-start">
+                <svg className="w-10 h-10 text-black drop-shadow-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17M12 5L5 9M12 5l7 4M5 9c0 1.66 1.34 3 3 3s3-1.34 3-3M19 9c0 1.66-1.34 3-3-3s-3 1.34-3 3M8 12c0 2.2 1.8 4 4 4s4-1.8 4-4" />
+                </svg>
+              </div>
+
+              <div className="space-y-1">
+                <div
+                  className="text-3xl sm:text-4xl md:text-5xl font-mono font-black tracking-widest text-white uppercase drop-shadow-[0_3px_0_#000]"
+                  style={{ WebkitTextStroke: '1.5px black' }}
+                >
+                  WITTY MAVERICKS
+                </div>
+                <div className="text-[10px] sm:text-xs md:text-sm font-mono font-black tracking-widest text-black uppercase underline decoration-2 decoration-black underline-offset-4">
+                  CREATIVE MARKETING COMPANY
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <div
+                  className="text-3xl sm:text-4xl md:text-5xl font-mono font-black text-[#e05638] tracking-wider drop-shadow-[0_3px_0_#000]"
+                  style={{ WebkitTextStroke: '1.5px black' }}
+                >
+                  +91 92508-82554
+                </div>
+                <span className="text-[10px] font-mono font-black text-black tracking-widest block mt-1 uppercase">
+                  CALL THE MAVERICKS NOW!
+                </span>
+              </div>
             </div>
+
+            {/* Right Content (Saul pointing) */}
+            <div className="hidden md:block absolute bottom-0 right-0 h-full w-[42%] max-w-[310px] z-10">
+              <img
+                src="/images/call-saul.jpg"
+                alt="Saul Goodman Pointing"
+                className="w-full h-full object-cover object-center filter contrast-125 brightness-105 border-l-4 border-black"
+              />
+            </div>
+          </div>
+
+          {/* Bottom Red Band */}
+          <div className="bg-red-700 text-white font-sans font-black text-center py-2.5 px-4 text-xs sm:text-sm tracking-wider uppercase border-t-4 border-black select-none">
           </div>
         </div>
 
         {/* Contact info and Form layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          
+
           {/* Contact Information */}
           <div className="flex flex-col justify-between">
             <div className="space-y-6">
@@ -96,7 +171,7 @@ export default function ContactSection() {
 
               <div className="space-y-6 pt-6 border-t border-black/10">
                 {/* Phone */}
-                <div 
+                <div
                   onClick={() => retroSound.playPhoneBell()}
                   className="flex items-center gap-4 group cursor-pointer"
                   title="Click to dial!"
@@ -140,7 +215,7 @@ export default function ContactSection() {
                 </div>
               </div>
             </div>
-            
+
             {/* Playful disclaimer */}
             <p className="text-[9px] font-mono text-black/40 mt-8 border-t border-black/5 pt-4 max-w-sm">
               *Disclaimer: Engaging Witty Mavericks leads to extreme brand reach, increased conversational visibility, and severe trendjacking tendencies. Proceed with caution.
@@ -151,7 +226,7 @@ export default function ContactSection() {
           <div className="relative">
             {/* Border shadow decoration */}
             <div className="absolute inset-0 bg-black rounded-2xl transform rotate-1 shadow-2xl"></div>
-            
+
             {/* Form Sheet */}
             <div className="relative bg-zinc-950 text-white p-8 rounded-2xl border border-zinc-900">
               <div className="flex justify-between items-center mb-6 border-b border-zinc-800 pb-4">
@@ -215,7 +290,7 @@ export default function ContactSection() {
                     required
                   ></textarea>
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
