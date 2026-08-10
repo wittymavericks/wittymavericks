@@ -90,8 +90,8 @@ export default function ContactPage() {
                   <span className="text-[10px] font-mono text-yellow-400 font-bold block mb-2">SUPPORT DIRECTORY</span>
                   <h3 className="text-2xl font-bold text-white mb-4 uppercase">Support Center</h3>
                   <div className="space-y-3 text-gray-400 text-sm font-mono">
-                    <p>Email: wittymavericks@gmail.com</p>
-                    <p>Phone: +91 9250882554</p>
+                    <p>Email: <a href="mailto:wittymavericks@gmail.com" className="hover:underline hover:text-[#fde047] transition-colors">wittymavericks@gmail.com</a></p>
+                    <p>Phone: <a href="https://wa.me/919250882554" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-[#fde047] transition-colors">+91 9250882554</a></p>
                     <p>Toll-free: 1800-MAVERICKS</p>
                     <div className="pt-4 border-t border-zinc-800/50">
                       <p className="text-[#fde047] font-bold">SUPPORT HOURS:</p>

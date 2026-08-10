@@ -171,10 +171,13 @@ export default function ContactSection() {
 
               <div className="space-y-6 pt-6 border-t border-black/10">
                 {/* Phone */}
-                <div
+                <a
+                  href="https://wa.me/919250882554"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => retroSound.playPhoneBell()}
                   className="flex items-center gap-4 group cursor-pointer"
-                  title="Click to dial!"
+                  title="Chat on WhatsApp!"
                 >
                   <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center text-[#fde047] shrink-0 transform transition duration-300 group-hover:rotate-6 shadow-md">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -185,10 +188,14 @@ export default function ContactSection() {
                     <h4 className="text-[10px] font-mono font-bold tracking-widest text-black/50 uppercase">ATTENTION EMERGENCY HOTLINE</h4>
                     <p className="text-lg font-black text-black tracking-wide">+91 9250882554</p>
                   </div>
-                </div>
+                </a>
 
                 {/* Email */}
-                <div className="flex items-center gap-4 group">
+                <a
+                  href="mailto:wittymavericks@gmail.com"
+                  className="flex items-center gap-4 group cursor-pointer"
+                  title="Send us an email!"
+                >
                   <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center text-[#fde047] shrink-0 transform transition duration-300 group-hover:rotate-6 shadow-md">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -198,7 +205,7 @@ export default function ContactSection() {
                     <h4 className="text-[10px] font-mono font-bold tracking-widest text-black/50 uppercase">SECURE DOSSIER INTAKE</h4>
                     <p className="text-lg font-black text-black tracking-wide">wittymavericks@gmail.com</p>
                   </div>
-                </div>
+                </a>
 
                 {/* Location */}
                 <div className="flex items-center gap-4 group">
