@@ -213,6 +213,46 @@ export default function ContactSection() {
                     <p className="text-lg font-black text-black tracking-wide">Jhansi, Uttar Pradesh, India</p>
                   </div>
                 </div>
+
+                {/* X (formerly Twitter) */}
+                <a
+                  href="https://x.com/wittymavericks"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 group cursor-pointer"
+                  title="Follow us on X!"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center text-[#fde047] shrink-0 transform transition duration-300 group-hover:rotate-6 shadow-md">
+                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-[10px] font-mono font-bold tracking-widest text-black/50 uppercase">PUBLIC FREQUENCY COORD</h4>
+                    <p className="text-lg font-black text-black tracking-wide">@wittymavericks</p>
+                  </div>
+                </a>
+
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/wittymavericks_?igsh=MWpqemR3YWFwcXZ5YQ=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 group cursor-pointer"
+                  title="Follow us on Instagram!"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-black flex items-center justify-center text-[#fde047] shrink-0 transform transition duration-300 group-hover:rotate-6 shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-[10px] font-mono font-bold tracking-widest text-black/50 uppercase">VISUAL WIRE INTEL</h4>
+                    <p className="text-lg font-black text-black tracking-wide">@wittymavericks_</p>
+                  </div>
+                </a>
               </div>
             </div>
 
